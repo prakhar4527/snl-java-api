@@ -59,7 +59,7 @@ public class testBoardTest
 		    b.rollDice(uuid);
 		    b.registerPlayer("Prakhjjar");	    
 	}
-	@Test(expectedExceptions= NoUserWithSuchUUIDException.class)
+//	@Test(expectedExceptions= NoUserWithSuchUUIDException.class)
 	public void checkNoUserWithSuchUUIDException () throws FileNotFoundException, UnsupportedEncodingException, PlayerExistsException, GameInProgressException, MaxPlayersReachedExeption, IOException, InvalidTurnException, NoUserWithSuchUUIDException
 	{
 		/*b=new Board();
@@ -71,7 +71,10 @@ public class testBoardTest
 		UUID uuid=UUID.randomUUID();
 		b.deletePlayer(uuid);
 	}
-	
-	
-
+	@Test(expectedExceptions= InvalidTurnException.class)
+	public void checkInvalidTurnException() throws FileNotFoundException, UnsupportedEncodingException, PlayerExistsException, GameInProgressException, MaxPlayersReachedExeption, IOException, InvalidTurnException, NoUserWithSuchUUIDException
+	{
+		UUID uuid=UUID.randomUUID();
+		b.rollDice(uuid);
+	}
 }
